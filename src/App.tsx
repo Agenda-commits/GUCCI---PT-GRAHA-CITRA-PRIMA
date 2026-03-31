@@ -4,7 +4,6 @@
  */
 
 import { 
-  Shield, 
   TrendingUp, 
   Users, 
   Globe, 
@@ -38,9 +37,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent-green rounded-none flex items-center justify-center">
-              <Shield className="text-white w-5 h-5" />
-            </div>
+            <img 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
+              alt="Logo" 
+              className="w-8 h-8 object-contain mix-blend-multiply"
+              referrerPolicy="no-referrer"
+            />
             <span className="font-bold text-[10px] sm:text-base tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
           </div>
           
@@ -515,8 +517,13 @@ export default function App() {
                   </div>
                   <div className="pt-6 border-t border-white/10">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                        <Shield className="text-accent-gold w-6 h-6" />
+                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
+                          alt="Security" 
+                          className="w-6 h-6 object-contain mix-blend-multiply"
+                          referrerPolicy="no-referrer"
+                        />
                       </div>
                       <div>
                         <div className="text-white font-bold text-xs uppercase tracking-widest">Keamanan Penarikan</div>
@@ -555,7 +562,12 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-accent-gold text-accent-gold text-xs font-bold uppercase tracking-widest mb-4">
-                <Shield className="w-3 h-3" /> Luxury Partnership
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
+                  alt="Badge" 
+                  className="w-3 h-3 object-contain mix-blend-multiply"
+                  referrerPolicy="no-referrer"
+                /> Luxury Partnership
               </div>
               <div className="text-accent-green font-bold text-sm uppercase tracking-[0.2em] mb-2">
                 GUCCI di bina secara langsung PT GRAHA CITRA PRIMA
@@ -655,50 +667,86 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section id="legalitas" className="py-16 md:py-24 bg-accent-green text-white overflow-hidden relative">
+      <section id="legalitas" className="py-20 md:py-32 bg-accent-green text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div>
-              <span className="text-accent-gold font-bold text-[10px] md:text-sm uppercase tracking-widest">Legalitas & Keamanan</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-8 uppercase tracking-tight">Sistem Legalitas Otomatis</h2>
-              <div className="space-y-6 md:space-y-8">
-                <div className="flex gap-4 md:gap-6">
-                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
-                    <Scale className="text-accent-gold w-5 h-5 md:w-6 md:h-6" />
+              <span className="text-accent-gold font-bold text-[10px] md:text-sm uppercase tracking-[0.3em]">Legalitas & Keamanan</span>
+              <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-10 uppercase tracking-tight leading-tight">Infrastruktur Hukum <br className="hidden md:block" /> & Keamanan Digital</h2>
+              
+              <div className="space-y-10">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
+                    <Scale className="text-accent-gold w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xs md:text-sm font-bold mb-2 uppercase tracking-widest">Smart Contract Legal</h4>
-                    <p className="text-white/60 text-xs md:text-sm leading-relaxed">
-                      Setiap perjanjian kerja dan pembagian komisi diatur melalui sistem kontrak digital otomatis yang sah.
+                    <h4 className="text-sm md:text-base font-bold mb-3 uppercase tracking-widest text-accent-gold">Smart Contract & Digital Agreement</h4>
+                    <p className="text-white/70 text-xs md:text-sm leading-relaxed">
+                      Setiap partisipasi dalam program Gucci Advertising P4P dilindungi oleh kontrak digital otomatis yang tidak dapat diubah (immutable). Sistem ini memastikan bahwa pembagian komisi antara 20% hingga 50% dieksekusi secara instan dan tepat sasaran tanpa campur tangan manual, menjamin hak setiap anggota secara absolut.
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 md:gap-6">
-                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
-                    <Shield className="text-accent-gold w-5 h-5 md:w-6 md:h-6" />
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
+                    <img 
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
+                      alt="Shield" 
+                      className="w-6 h-6 object-contain mix-blend-multiply"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                   <div>
-                    <h4 className="text-xs md:text-sm font-bold mb-2 uppercase tracking-widest">Kepatuhan Regulasi</h4>
-                    <p className="text-white/60 text-xs md:text-sm leading-relaxed">
-                      Sistem kami secara otomatis menyesuaikan dengan regulasi periklanan dan keuangan internasional.
+                    <h4 className="text-sm md:text-base font-bold mb-3 uppercase tracking-widest text-accent-gold">Kepatuhan Regulasi Internasional</h4>
+                    <p className="text-white/70 text-xs md:text-sm leading-relaxed">
+                      Operasional kami di bawah binaan PT GRAHA CITRA PRIMA sepenuhnya mematuhi standar regulasi periklanan digital global dan kebijakan privasi data internasional (GDPR). Kami menjamin bahwa seluruh alur dana dan data anggota dikelola secara legal sesuai dengan hukum yang berlaku di 32 negara jangkauan operasional kami.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
+                    <Lock className="text-accent-gold w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm md:text-base font-bold mb-3 uppercase tracking-widest text-accent-gold">Protokol Anti-Fraud & Audit Transparansi</h4>
+                    <p className="text-white/70 text-xs md:text-sm leading-relaxed">
+                      Sistem kami dilengkapi dengan algoritma deteksi kecurangan real-time yang memantau setiap aktivitas akun kerja. Selain itu, kami melakukan audit transparansi berkala untuk memastikan bahwa setiap rupiah komisi yang dihasilkan dari kampanye iklan benar-benar didistribusikan kepada anggota yang berhak.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 p-6 md:p-10 rounded-none border border-white/10 backdrop-blur-sm">
-              <h3 className="text-lg md:text-xl font-bold mb-6 uppercase tracking-widest text-accent-gold">Latar Belakang</h3>
-              <p className="text-white/60 text-xs md:text-sm mb-8 leading-relaxed">
-                Didirikan dengan visi untuk mendemokratisasi industri periklanan digital dengan transparansi penuh.
-              </p>
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="p-4 md:p-6 bg-white/5 rounded-none border border-white/5">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">10k+</div>
-                  <div className="text-[8px] md:text-[10px] text-accent-gold uppercase tracking-widest">Anggota Aktif</div>
+
+            <div className="space-y-8">
+              <div className="bg-white/5 p-8 md:p-12 rounded-none border border-white/10 backdrop-blur-md relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-gold/5 -mr-16 -mt-16 rounded-full blur-3xl"></div>
+                <h3 className="text-xl md:text-2xl font-bold mb-8 uppercase tracking-widest text-accent-gold border-b border-white/10 pb-4">Latar Belakang Perusahaan</h3>
+                <p className="text-white/80 text-sm md:text-base mb-10 leading-relaxed italic">
+                  "Visi kami adalah menciptakan ekosistem periklanan yang paling transparan di dunia, di mana teknologi dan kepercayaan menyatu untuk memberikan nilai maksimal bagi setiap mitra kami."
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="p-6 bg-white/5 rounded-none border border-white/5 hover:bg-white/10 transition-all">
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tighter">10k+</div>
+                    <div className="text-[10px] text-accent-gold uppercase tracking-[0.2em] font-bold">Mitra Aktif</div>
+                  </div>
+                  <div className="p-6 bg-white/5 rounded-none border border-white/5 hover:bg-white/10 transition-all">
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tighter">$2.5M</div>
+                    <div className="text-[10px] text-accent-gold uppercase tracking-[0.2em] font-bold">Total Komisi</div>
+                  </div>
                 </div>
-                <div className="p-4 md:p-6 bg-white/5 rounded-none border border-white/5">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">$2.5M</div>
-                  <div className="text-[8px] md:text-[10px] text-accent-gold uppercase tracking-widest">Komisi Dibayarkan</div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-6 border border-white/10 bg-white/5">
+                  <CheckCircle2 className="text-accent-gold w-5 h-5 mb-4" />
+                  <h5 className="text-[10px] font-bold uppercase tracking-widest mb-2">Enkripsi End-to-End</h5>
+                  <p className="text-[10px] text-white/50 leading-relaxed">Seluruh data transaksi dan identitas anggota dilindungi enkripsi militer.</p>
+                </div>
+                <div className="p-6 border border-white/10 bg-white/5">
+                  <TrendingUp className="text-accent-gold w-5 h-5 mb-4" />
+                  <h5 className="text-[10px] font-bold uppercase tracking-widest mb-2">Real-time Settlement</h5>
+                  <p className="text-[10px] text-white/50 leading-relaxed">Pencairan dana diproses melalui sistem otomatis yang tersedia 24/7.</p>
                 </div>
               </div>
             </div>
@@ -710,7 +758,12 @@ export default function App() {
       <footer className="py-12 bg-bg-warm border-t border-accent-gold/10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Shield className="text-accent-green w-5 h-5 md:w-6 md:h-6" />
+            <img 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
+              alt="Logo" 
+              className="w-8 h-8 md:w-10 md:h-10 object-contain mix-blend-multiply"
+              referrerPolicy="no-referrer"
+            />
             <span className="font-bold text-base md:text-xl tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
           </div>
           <p className="text-accent-gold/60 text-[8px] md:text-[10px] uppercase tracking-widest mb-8">
