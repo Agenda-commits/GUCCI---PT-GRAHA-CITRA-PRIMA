@@ -13,63 +13,118 @@ import {
   Lock, 
   Share2,
   ChevronRight,
-  Scale
+  Scale,
+  Menu,
+  X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState, useEffect } from 'react';
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-warm/80 backdrop-blur-md border-b border-accent-gold/10">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between h-16 items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-accent-green rounded-none flex items-center justify-center">
-            <Shield className="text-white w-5 h-5" />
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Sistem', href: '#sistem' },
+    { name: 'Iklan', href: '#iklan' },
+    { name: 'Konsep', href: '#penjelasan' },
+    { name: 'Affiliate', href: '#affiliate' },
+    { name: 'Komisi', href: '#komisi' },
+    { name: 'Portofolio', href: '#portofolio' },
+    { name: 'Legalitas', href: '#legalitas' },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-warm/80 backdrop-blur-md border-b border-accent-gold/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-accent-green rounded-none flex items-center justify-center">
+              <Shield className="text-white w-5 h-5" />
+            </div>
+            <span className="font-bold text-[10px] sm:text-base tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
           </div>
-          <span className="font-bold text-base tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-bold text-accent-gold uppercase tracking-widest">
+            {navLinks.map((link) => (
+              <a key={link.name} href={link.href} className="hover:text-accent-green transition-colors">{link.name}</a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:block bg-accent-green text-white px-6 py-2 rounded-none text-[10px] font-bold uppercase tracking-widest hover:bg-accent-green/90 transition-all shadow-sm">
+              Gabung
+            </button>
+            
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="md:hidden text-accent-green p-2"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
-        <div className="hidden md:flex items-center gap-8 text-[10px] font-bold text-accent-gold uppercase tracking-widest">
-          <a href="#sistem" className="hover:text-accent-green transition-colors">Sistem</a>
-          <a href="#iklan" className="hover:text-accent-green transition-colors">Iklan</a>
-          <a href="#penjelasan" className="hover:text-accent-green transition-colors">Konsep</a>
-          <a href="#affiliate" className="hover:text-accent-green transition-colors">Affiliate</a>
-          <a href="#komisi" className="hover:text-accent-green transition-colors">Komisi</a>
-          <a href="#portofolio" className="hover:text-accent-green transition-colors">Portofolio</a>
-          <a href="#legalitas" className="hover:text-accent-green transition-colors">Legalitas</a>
-        </div>
-        <button className="bg-accent-green text-white px-6 py-2 rounded-none text-[10px] font-bold uppercase tracking-widest hover:bg-accent-green/90 transition-all shadow-sm">
-          Gabung
-        </button>
       </div>
-    </div>
-  </nav>
-);
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-bg-warm border-b border-accent-gold/10 overflow-hidden"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-4 text-[10px] font-bold text-accent-gold uppercase tracking-widest hover:bg-accent-green/5 hover:text-accent-green transition-all border-b border-accent-gold/5 last:border-0"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <div className="pt-4 px-3">
+                <button className="w-full bg-accent-green text-white py-4 rounded-none text-[10px] font-bold uppercase tracking-widest">
+                  Gabung Sekarang
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
 
 const Hero = () => (
-  <section className="pt-40 pb-24 px-4 gradient-bg">
+  <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-4 gradient-bg">
     <div className="max-w-7xl mx-auto text-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="inline-block px-4 py-1 mb-8 text-[10px] font-bold tracking-[0.3em] text-accent-gold uppercase border-b border-accent-gold/30">
+        <span className="inline-block px-4 py-1 mb-6 md:mb-8 text-[8px] md:text-[10px] font-bold tracking-[0.3em] text-accent-gold uppercase border-b border-accent-gold/30">
           Transparansi & Keamanan
         </span>
-        <h1 className="text-5xl md:text-7xl font-bold text-accent-green tracking-tighter mb-10 uppercase leading-tight">
-          GUCCI di bina secara langsung <br />
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-accent-green tracking-tighter mb-8 md:mb-10 uppercase leading-tight">
+          GUCCI di bina secara langsung <br className="hidden sm:block" />
           <span className="text-accent-gold italic font-serif lowercase tracking-normal">
             PT GRAHA CITRA PRIMA
           </span>
         </h1>
-        <p className="max-w-2xl mx-auto text-sm font-medium text-text-charcoal/70 mb-12 uppercase tracking-widest leading-relaxed">
+        <p className="max-w-2xl mx-auto text-[10px] sm:text-sm font-medium text-text-charcoal/70 mb-10 md:mb-12 uppercase tracking-widest leading-relaxed">
           Platform periklanan berbasis performa yang transparan. Maksimalkan pendapatan Anda melalui sistem pembagian komisi yang adil.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a href="#penjelasan" className="px-10 py-4 bg-accent-green text-white rounded-none font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-accent-green/90 transition-all flex items-center justify-center gap-2 shadow-lg">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+          <a href="#penjelasan" className="px-8 md:px-10 py-3 md:py-4 bg-accent-green text-white rounded-none font-bold text-[8px] md:text-[10px] uppercase tracking-[0.2em] hover:bg-accent-green/90 transition-all flex items-center justify-center gap-2 shadow-lg">
             Pelajari Konsep <ChevronRight className="w-3 h-3" />
           </a>
-          <a href="#legalitas" className="px-10 py-4 bg-transparent text-accent-green border border-accent-green rounded-none font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-accent-green hover:text-white transition-all flex items-center justify-center">
+          <a href="#legalitas" className="px-8 md:px-10 py-3 md:py-4 bg-transparent text-accent-green border border-accent-green rounded-none font-bold text-[8px] md:text-[10px] uppercase tracking-[0.2em] hover:bg-accent-green hover:text-white transition-all flex items-center justify-center">
             Latar Belakang
           </a>
         </div>
@@ -89,10 +144,10 @@ const FeatureCard = ({ icon: Icon, title, description }: { icon: any, title: str
 );
 
 const SectionHeading = ({ badge, title, subtitle }: { badge: string, title: string, subtitle: string }) => (
-  <div className="text-center mb-20">
-    <span className="text-accent-gold font-bold text-[10px] uppercase tracking-[0.4em]">{badge}</span>
-    <h2 className="text-4xl font-bold text-accent-green mt-4 mb-6 uppercase tracking-tight">{title}</h2>
-    <p className="text-text-charcoal/50 text-sm max-w-2xl mx-auto uppercase tracking-widest">{subtitle}</p>
+  <div className="text-center mb-12 md:mb-20">
+    <span className="text-accent-gold font-bold text-[8px] md:text-[10px] uppercase tracking-[0.4em]">{badge}</span>
+    <h2 className="text-2xl md:text-4xl font-bold text-accent-green mt-4 mb-4 md:mb-6 uppercase tracking-tight">{title}</h2>
+    <p className="text-text-charcoal/50 text-[10px] md:text-sm max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">{subtitle}</p>
   </div>
 );
 
@@ -201,20 +256,19 @@ const GucciSlideshow = () => {
         </div>
       </div>
       
-      {/* Floating Badge moved outside the overflow-hidden container */}
-      <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-none shadow-sm border border-accent-gold/10 max-w-[200px] z-20">
+      <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-none shadow-sm border border-accent-gold/10 max-w-[150px] md:max-w-[200px] z-20">
         <AnimatePresence mode="wait">
           <motion.div 
             key={commission}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="text-accent-green font-black text-3xl mb-1"
+            className="text-accent-green font-black text-xl md:text-3xl mb-1"
           >
             {commission}%
           </motion.div>
         </AnimatePresence>
-        <div className="text-[10px] font-bold text-accent-gold uppercase tracking-widest">Premium Commission</div>
+        <div className="text-[8px] md:text-[10px] font-bold text-accent-gold uppercase tracking-widest">Premium Commission</div>
       </div>
     </div>
   );
@@ -226,9 +280,9 @@ const DynamicCommissionTable = () => {
 
   useEffect(() => {
     const generateItems = () => {
-      // Generate 10 items with prices between 100,000 and 10,000,000
+      // Generate 10 items with prices between 100,000 and 1,500,000
       return Array.from({ length: 10 }).map(() => ({
-        price: Math.floor(Math.random() * 9900001) + 100000,
+        price: Math.floor(Math.random() * 1400001) + 100000,
         rate: Math.floor(Math.random() * 31) + 20, // 20-50%
       }));
     };
@@ -267,16 +321,16 @@ const DynamicCommissionTable = () => {
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                   className="hover:bg-bg-warm transition-colors border-b border-accent-gold/5"
                 >
-                  <td className="p-4 text-sm font-medium text-accent-green border-r border-accent-gold/5">
+                  <td className="p-3 md:p-4 text-[10px] md:text-sm font-medium text-accent-green border-r border-accent-gold/5 whitespace-nowrap">
                     Rp {item.price.toLocaleString('id-ID')}
                   </td>
-                  <td className="p-4 text-center text-sm font-bold text-accent-gold border-r border-accent-gold/5">
+                  <td className="p-3 md:p-4 text-center text-[10px] md:text-sm font-bold text-accent-gold border-r border-accent-gold/5">
                     {item.rate}%
                   </td>
-                  <td className="p-4 text-right text-sm font-medium text-text-charcoal border-r border-accent-gold/5">
+                  <td className="p-3 md:p-4 text-right text-[10px] md:text-sm font-medium text-text-charcoal border-r border-accent-gold/5 whitespace-nowrap">
                     Rp {result.toLocaleString('id-ID')}
                   </td>
-                  <td className="p-4 text-right text-sm font-black text-accent-green">
+                  <td className="p-3 md:p-4 text-right text-[10px] md:text-sm font-black text-accent-green whitespace-nowrap">
                     Rp {total.toLocaleString('id-ID')}
                   </td>
                 </motion.tr>
@@ -307,7 +361,7 @@ export default function App() {
             title="Bagaimana Akun Kerja Beroperasi?"
             subtitle="Sistem manajemen akun yang dirancang untuk efisiensi dan keamanan data setiap anggota."
           />
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={Lock}
               title="Keamanan Terpusat"
@@ -368,7 +422,7 @@ export default function App() {
                   <Globe className="text-accent-green w-5 h-5" />
                 </div>
                 
-                <div className="grid grid-cols-4 gap-2 mb-8">
+                <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-8">
                   {[
                     'USA', 'UK', 'Germany', 'France', 
                     'Italy', 'Spain', 'Canada', 'Australia',
@@ -478,17 +532,17 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-20 grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {[
               { title: 'Monitoring', desc: 'Pantau saldo harian secara akurat.' },
               { title: 'Konektivitas', desc: 'Tautkan rekening bank dengan aman.' },
               { title: 'Withdrawal', desc: 'Proses pencairan dana yang cepat.' },
               { title: 'Manajemen', desc: 'Kelola dana masuk dan keluar dengan mudah.' }
             ].map((item, i) => (
-              <div key={i} className="text-center p-6 border-t border-accent-gold/10">
-                <div className="text-accent-gold font-black text-xl mb-2">/0{i+1}</div>
-                <h5 className="text-xs font-bold text-accent-green uppercase tracking-widest mb-2">{item.title}</h5>
-                <p className="text-[10px] text-text-charcoal/50 uppercase tracking-widest">{item.desc}</p>
+              <div key={i} className="text-center p-4 md:p-6 border-t border-accent-gold/10">
+                <div className="text-accent-gold font-black text-lg md:text-xl mb-2">/0{i+1}</div>
+                <h5 className="text-[10px] md:text-xs font-bold text-accent-green uppercase tracking-widest mb-2">{item.title}</h5>
+                <p className="text-[8px] md:text-[10px] text-text-charcoal/50 uppercase tracking-widest">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -506,7 +560,7 @@ export default function App() {
               <div className="text-accent-green font-bold text-sm uppercase tracking-[0.2em] mb-2">
                 GUCCI di bina secara langsung PT GRAHA CITRA PRIMA
               </div>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
                 Gucci Luxury <br />
                 <span className="italic text-accent-gold">Affiliate Program</span>
               </h2>
@@ -601,50 +655,50 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section id="legalitas" className="py-20 bg-accent-green text-white overflow-hidden relative">
+      <section id="legalitas" className="py-16 md:py-24 bg-accent-green text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <span className="text-accent-gold font-bold text-sm uppercase tracking-widest">Legalitas & Keamanan</span>
-              <h2 className="text-4xl font-bold mt-2 mb-8 uppercase tracking-tight">Sistem Legalitas Otomatis</h2>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
-                    <Scale className="text-accent-gold w-6 h-6" />
+              <span className="text-accent-gold font-bold text-[10px] md:text-sm uppercase tracking-widest">Legalitas & Keamanan</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-8 uppercase tracking-tight">Sistem Legalitas Otomatis</h2>
+              <div className="space-y-6 md:space-y-8">
+                <div className="flex gap-4 md:gap-6">
+                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
+                    <Scale className="text-accent-gold w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold mb-2 uppercase tracking-widest">Smart Contract Legal</h4>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <h4 className="text-xs md:text-sm font-bold mb-2 uppercase tracking-widest">Smart Contract Legal</h4>
+                    <p className="text-white/60 text-xs md:text-sm leading-relaxed">
                       Setiap perjanjian kerja dan pembagian komisi diatur melalui sistem kontrak digital otomatis yang sah.
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
-                    <Shield className="text-accent-gold w-6 h-6" />
+                <div className="flex gap-4 md:gap-6">
+                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-none flex items-center justify-center border border-white/10">
+                    <Shield className="text-accent-gold w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold mb-2 uppercase tracking-widest">Kepatuhan Regulasi</h4>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <h4 className="text-xs md:text-sm font-bold mb-2 uppercase tracking-widest">Kepatuhan Regulasi</h4>
+                    <p className="text-white/60 text-xs md:text-sm leading-relaxed">
                       Sistem kami secara otomatis menyesuaikan dengan regulasi periklanan dan keuangan internasional.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 p-10 rounded-none border border-white/10 backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-6 uppercase tracking-widest text-accent-gold">Latar Belakang</h3>
-              <p className="text-white/60 text-sm mb-8 leading-relaxed">
+            <div className="bg-white/5 p-6 md:p-10 rounded-none border border-white/10 backdrop-blur-sm">
+              <h3 className="text-lg md:text-xl font-bold mb-6 uppercase tracking-widest text-accent-gold">Latar Belakang</h3>
+              <p className="text-white/60 text-xs md:text-sm mb-8 leading-relaxed">
                 Didirikan dengan visi untuk mendemokratisasi industri periklanan digital dengan transparansi penuh.
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 bg-white/5 rounded-none border border-white/5">
-                  <div className="text-3xl font-bold text-white mb-1">10k+</div>
-                  <div className="text-[10px] text-accent-gold uppercase tracking-widest">Anggota Aktif</div>
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                <div className="p-4 md:p-6 bg-white/5 rounded-none border border-white/5">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">10k+</div>
+                  <div className="text-[8px] md:text-[10px] text-accent-gold uppercase tracking-widest">Anggota Aktif</div>
                 </div>
-                <div className="p-6 bg-white/5 rounded-none border border-white/5">
-                  <div className="text-3xl font-bold text-white mb-1">$2.5M</div>
-                  <div className="text-[10px] text-accent-gold uppercase tracking-widest">Komisi Dibayarkan</div>
+                <div className="p-4 md:p-6 bg-white/5 rounded-none border border-white/5">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">$2.5M</div>
+                  <div className="text-[8px] md:text-[10px] text-accent-gold uppercase tracking-widest">Komisi Dibayarkan</div>
                 </div>
               </div>
             </div>
@@ -656,13 +710,13 @@ export default function App() {
       <footer className="py-12 bg-bg-warm border-t border-accent-gold/10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Shield className="text-accent-green w-6 h-6" />
-            <span className="font-bold text-xl tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
+            <Shield className="text-accent-green w-5 h-5 md:w-6 md:h-6" />
+            <span className="font-bold text-base md:text-xl tracking-[0.1em] text-accent-green uppercase">GUCCI - PT GRAHA CITRA PRIMA</span>
           </div>
-          <p className="text-accent-gold/60 text-[10px] uppercase tracking-widest mb-8">
+          <p className="text-accent-gold/60 text-[8px] md:text-[10px] uppercase tracking-widest mb-8">
             © 2026 PT GRAHA CITRA PRIMA. Seluruh hak cipta dilindungi.
           </p>
-          <div className="flex justify-center gap-6 text-[10px] font-bold text-accent-gold uppercase tracking-widest">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-[8px] md:text-[10px] font-bold text-accent-gold uppercase tracking-widest">
             <a href="#" className="hover:text-accent-green transition-colors">Syarat & Ketentuan</a>
             <a href="#" className="hover:text-accent-green transition-colors">Kebijakan Privasi</a>
             <a href="#" className="hover:text-accent-green transition-colors">Hubungi Kami</a>
