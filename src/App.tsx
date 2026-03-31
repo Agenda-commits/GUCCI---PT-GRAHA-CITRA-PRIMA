@@ -114,8 +114,8 @@ const Hero = () => (
           Transparansi & Keamanan
         </span>
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-accent-green tracking-tighter mb-8 md:mb-10 uppercase leading-tight">
-          GUCCI di bina secara langsung <br className="hidden sm:block" />
-          <span className="text-accent-gold italic font-serif lowercase tracking-normal">
+          GUCCI DI BINA SECARA LANGSUNG <br className="hidden sm:block" />
+          <span className="text-accent-gold italic font-sans uppercase tracking-normal">
             PT GRAHA CITRA PRIMA
           </span>
         </h1>
@@ -253,7 +253,7 @@ const GucciSlideshow = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-accent-green/80 via-transparent to-transparent flex flex-col justify-start p-8 z-10">
           <div className="text-white">
             <div className="text-xs font-medium opacity-80 mb-1 uppercase tracking-widest">P4P Advertising Recognition</div>
-            <div className="text-2xl font-serif font-bold italic uppercase tracking-widest">Gucci Global Program 2026</div>
+            <div className="text-2xl font-sans font-bold italic uppercase tracking-widest">Gucci Global Program 2026</div>
           </div>
         </div>
       </div>
@@ -507,7 +507,7 @@ export default function App() {
 
             <div className="relative">
               <div className="aspect-square bg-accent-green p-12 flex flex-col justify-center border border-accent-gold/20 shadow-2xl">
-                <h3 className="text-3xl font-serif italic text-accent-gold mb-6">"Transparansi Penuh dalam Setiap Transaksi Pencairan Dana."</h3>
+                <h3 className="text-3xl font-sans italic text-accent-gold mb-6">"Transparansi Penuh dalam Setiap Transaksi Pencairan Dana."</h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-1 bg-accent-gold h-12"></div>
@@ -570,9 +570,9 @@ export default function App() {
                 /> Luxury Partnership
               </div>
               <div className="text-accent-green font-bold text-sm uppercase tracking-[0.2em] mb-2">
-                GUCCI di bina secara langsung PT GRAHA CITRA PRIMA
+                GUCCI DI BINA SECARA LANGSUNG PT GRAHA CITRA PRIMA
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
                 Gucci Luxury <br />
                 <span className="italic text-accent-gold">Affiliate Program</span>
               </h2>
