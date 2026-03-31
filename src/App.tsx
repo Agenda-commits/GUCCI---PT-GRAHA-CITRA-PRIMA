@@ -54,9 +54,9 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:block bg-accent-green text-white px-6 py-2 rounded-none text-[10px] font-bold uppercase tracking-widest hover:bg-accent-green/90 transition-all shadow-sm">
-              Gabung
-            </button>
+            <div className="hidden sm:flex items-center px-4 py-2 bg-accent-green text-white border border-accent-green/20 text-[9px] font-bold uppercase tracking-widest shadow-sm">
+              Hubungi Admin Registrasi Sekarang
+            </div>
             
             {/* Mobile Menu Toggle */}
             <button 
@@ -90,9 +90,9 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="pt-4 px-3">
-                <button className="w-full bg-accent-green text-white py-4 rounded-none text-[10px] font-bold uppercase tracking-widest">
-                  Gabung Sekarang
-                </button>
+                <div className="w-full bg-accent-green text-white py-4 text-center text-[9px] font-bold uppercase tracking-widest shadow-md">
+                  Hubungi Admin Registrasi Sekarang
+                </div>
               </div>
             </div>
           </motion.div>
