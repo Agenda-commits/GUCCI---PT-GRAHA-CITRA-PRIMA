@@ -235,42 +235,61 @@ const GucciSlideshow = () => {
   }, [images.length]);
 
   return (
-    <div className="relative">
-      <div className="aspect-[4/5] rounded-none overflow-hidden shadow-sm border border-accent-gold/10 relative">
+    <div className="relative w-full max-w-2xl mx-auto">
+      <div className="aspect-square w-full rounded-none overflow-hidden shadow-2xl border border-accent-gold/10 relative bg-[#f0f4f2]">
+        {/* Background Gradient to match the user's reference */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#d1e0d9] to-[#f0f4f2] opacity-50" />
+        
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
             src={images[index]}
             alt="Gucci P4P Advertising"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover sepia-[0.1] opacity-95"
+            initial={{ opacity: 0, scale: 1.1, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            className="absolute inset-0 w-full h-full object-contain p-6 md:p-12 z-0"
             referrerPolicy="no-referrer"
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-green/80 via-transparent to-transparent flex flex-col justify-start p-8 z-10">
-          <div className="text-white">
-            <div className="text-xs font-medium opacity-80 mb-1 uppercase tracking-widest">P4P Advertising Recognition</div>
-            <div className="text-2xl font-sans font-bold italic uppercase tracking-widest">Gucci Global Program 2026</div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-none shadow-sm border border-accent-gold/10 max-w-[150px] md:max-w-[200px] z-20">
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={commission}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="text-accent-green font-black text-xl md:text-3xl mb-1"
+
+        {/* Text Overlay - Responsive sizes */}
+        <div className="absolute top-0 left-0 right-0 p-6 md:p-10 z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            key={`text-${index}`}
+            transition={{ delay: 0.2 }}
           >
-            {commission}%
+            <div className="text-[7px] md:text-[10px] font-bold text-accent-green/60 uppercase tracking-[0.4em] mb-2">P4P Advertising Recognition</div>
+            <div className="text-xl sm:text-2xl md:text-4xl font-sans font-black italic uppercase tracking-tighter text-accent-green leading-[0.9]">
+              Gucci Global <br /> Program 2026
+            </div>
           </motion.div>
-        </AnimatePresence>
-        <div className="text-[8px] md:text-[10px] font-bold text-accent-gold uppercase tracking-widest">Premium Commission</div>
+        </div>
+
+        {/* Commission Box - Responsive positioning and sizing */}
+        <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-20">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white p-3 md:p-6 shadow-2xl border border-accent-gold/10"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={commission}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-accent-green font-black text-xl sm:text-2xl md:text-5xl mb-1 leading-none"
+              >
+                {commission}%
+              </motion.div>
+            </AnimatePresence>
+            <div className="text-[5px] md:text-[10px] font-bold text-accent-gold uppercase tracking-[0.2em]">Premium Commission</div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -559,8 +578,8 @@ export default function App() {
       {/* Gucci Affiliate Program Section */}
       <section id="affiliate" className="py-24 bg-bg-warm border-b border-accent-gold/10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+            <div className="w-full md:w-1/2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-accent-gold text-accent-gold text-xs font-bold uppercase tracking-widest mb-4">
                 <img 
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlnPCtUz7f8TsF6_8NHdDs5f8yYn2H3Axrw&s" 
@@ -576,7 +595,7 @@ export default function App() {
                 Gucci Luxury <br />
                 <span className="italic text-accent-gold">Affiliate Program</span>
               </h2>
-              <p className="text-text-charcoal/70 text-lg mb-8 leading-relaxed">
+              <p className="text-text-charcoal/70 text-base md:text-lg mb-8 leading-relaxed">
                 Tingkatkan prestise branding Anda dengan bergabung dalam program eksklusif afiliasi produk mewah. Inilah produk-produk yang dipromosikan menggunakan sistem Advertising P4P, di mana Anda dapat memperoleh pendapatan komisi secara acak antara 20% hingga 50% untuk setiap produk premium Gucci.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -586,7 +605,7 @@ export default function App() {
                   </div>
                   <div>
                     <h5 className="font-bold text-accent-green uppercase text-xs tracking-widest">Influencer Network</h5>
-                    <p className="text-sm text-text-charcoal/50">Optimalkan promosi produk mewah dengan sistem Advertising P4P.</p>
+                    <p className="text-xs md:text-sm text-text-charcoal/50">Optimalkan promosi produk mewah dengan sistem Advertising P4P.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -595,12 +614,12 @@ export default function App() {
                   </div>
                   <div>
                     <h5 className="font-bold text-accent-green uppercase text-xs tracking-widest">Global Exposure</h5>
-                    <p className="text-sm text-text-charcoal/50">Dapatkan pendapatan secara acak 20-50% melalui pasar internasional.</p>
+                    <p className="text-xs md:text-sm text-text-charcoal/50">Dapatkan pendapatan secara acak 20-50% melalui pasar internasional.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="md:w-1/2 relative">
+            <div className="w-full md:w-1/2 relative px-4 md:px-0">
               <GucciSlideshow />
             </div>
           </div>
