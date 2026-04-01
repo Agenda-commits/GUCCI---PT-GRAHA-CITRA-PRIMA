@@ -30,6 +30,8 @@ const Navbar = () => {
     { name: 'Komisi', href: '#komisi' },
     { name: 'Portofolio', href: '#portofolio' },
     { name: 'Legalitas', href: '#legalitas' },
+    { name: 'S&K', href: '#syarat' },
+    { name: 'Privasi', href: '#privasi' },
   ];
 
   return (
@@ -773,6 +775,154 @@ export default function App() {
         </div>
       </section>
 
+      {/* Syarat & Ketentuan Section */}
+      <section id="syarat" className="py-24 bg-white border-b border-accent-gold/10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-accent-gold text-accent-gold text-[10px] font-bold uppercase tracking-widest mb-4">
+              <Scale className="w-3 h-3" /> Aturan & Prosedur
+            </div>
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
+              Syarat & <span className="italic text-accent-gold">Ketentuan</span>
+            </h2>
+            <p className="text-text-charcoal/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Seluruh mitra diwajibkan untuk memahami dan mematuhi protokol operasional yang telah ditetapkan oleh PT GRAHA CITRA PRIMA untuk menjaga integritas ekosistem Gucci Advertising P4P.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="p-8 border border-accent-gold/10 bg-bg-warm hover:border-accent-gold/30 transition-all group">
+              <div className="w-12 h-12 bg-accent-green text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-accent-green mb-4 uppercase tracking-widest">Prosedur Registrasi</h3>
+              <ul className="space-y-3 text-xs md:text-sm text-text-charcoal/70 leading-relaxed">
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Registrasi hanya dapat dilakukan melalui link referral resmi yang divalidasi oleh sistem.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Setiap mitra wajib melengkapi verifikasi identitas (KYC) untuk memastikan keamanan akun.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Satu identitas hanya diperbolehkan memiliki satu akun kerja aktif di platform.</li>
+              </ul>
+            </div>
+
+            <div className="p-8 border border-accent-gold/10 bg-bg-warm hover:border-accent-gold/30 transition-all group">
+              <div className="w-12 h-12 bg-accent-green text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Globe className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-accent-green mb-4 uppercase tracking-widest">Peran Advisor Gucci</h3>
+              <ul className="space-y-3 text-xs md:text-sm text-text-charcoal/70 leading-relaxed">
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Advisor bertindak sebagai pembimbing teknis dalam menjalankan kampanye iklan P4P.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Mitra wajib berkonsultasi dengan Advisor sebelum melakukan penarikan komisi skala besar.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Advisor berhak memberikan teguran jika ditemukan aktivitas yang tidak sesuai prosedur.</li>
+              </ul>
+            </div>
+
+            <div className="p-8 border border-accent-gold/10 bg-bg-warm hover:border-accent-gold/30 transition-all group">
+              <div className="w-12 h-12 bg-accent-green text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Lock className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-accent-green mb-4 uppercase tracking-widest">Keamanan & Etika</h3>
+              <ul className="space-y-3 text-xs md:text-sm text-text-charcoal/70 leading-relaxed">
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Dilarang keras menggunakan bot atau skrip otomatis untuk memanipulasi data iklan.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Menjaga kerahasiaan data login dan tidak membagikannya kepada pihak ketiga mana pun.</li>
+                <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-accent-gold mt-1.5 flex-shrink-0"></div> Pelanggaran terhadap etika kerja dapat mengakibatkan pembekuan akun secara permanen.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 p-8 bg-accent-green text-white border-l-4 border-accent-gold">
+            <h4 className="text-sm md:text-base font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-accent-gold" /> Catatan Penting
+            </h4>
+            <p className="text-xs md:text-sm opacity-80 leading-relaxed">
+              PT GRAHA CITRA PRIMA berhak untuk memperbarui Syarat & Ketentuan ini sewaktu-waktu sesuai dengan perkembangan regulasi dan teknologi. Mitra dianggap menyetujui setiap perubahan dengan tetap aktif menjalankan program Gucci Advertising P4P. Seluruh keputusan yang diambil oleh dewan Advisor bersifat mutlak dan didasarkan pada data sistem yang transparan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Kebijakan Privasi Section */}
+      <section id="privasi" className="py-24 bg-bg-warm border-b border-accent-gold/10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-accent-gold text-accent-gold text-[10px] font-bold uppercase tracking-widest mb-4">
+              <Lock className="w-3 h-3" /> Privasi & Keamanan
+            </div>
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-accent-green mb-6 leading-tight uppercase tracking-tighter">
+              Kebijakan <span className="italic text-accent-gold">Privasi</span>
+            </h2>
+            <p className="text-text-charcoal/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Komitmen PT GRAHA CITRA PRIMA dalam melindungi data pribadi Anda adalah prioritas utama kami. Kami menerapkan standar enkripsi tingkat tinggi untuk setiap informasi yang Anda percayakan.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-10">
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent-green text-white flex items-center justify-center border border-accent-gold/20">
+                  <BarChart3 className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-accent-green mb-3 uppercase tracking-widest">Pengumpulan Informasi</h3>
+                  <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed">
+                    Kami mengumpulkan data identitas (nama, email, nomor identitas) untuk keperluan verifikasi akun (KYC) dan data teknis (alamat IP, jenis perangkat) untuk optimalisasi performa platform kerja Anda. Seluruh data dikumpulkan secara transparan dan hanya dengan persetujuan eksplisit dari Anda.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent-green text-white flex items-center justify-center border border-accent-gold/20">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-accent-green mb-3 uppercase tracking-widest">Penggunaan Data</h3>
+                  <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed">
+                    Informasi Anda digunakan secara eksklusif untuk memproses pembayaran komisi, memberikan dukungan teknis melalui Advisor, dan mengirimkan pembaruan penting mengenai kampanye iklan Gucci Advertising P4P. Kami tidak pernah menjual data Anda kepada pihak ketiga untuk tujuan pemasaran eksternal.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-10">
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent-green text-white flex items-center justify-center border border-accent-gold/20">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-accent-green mb-3 uppercase tracking-widest">Keamanan Tingkat Militer</h3>
+                  <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed">
+                    Setiap transaksi dan pertukaran data dilindungi oleh enkripsi SSL/TLS 256-bit. Server kami berlokasi di pusat data dengan keamanan fisik 24/7 dan protokol pemulihan bencana otomatis untuk memastikan data Anda selalu tersedia dan terlindungi dari akses yang tidak sah.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent-green text-white flex items-center justify-center border border-accent-gold/20">
+                  <CheckCircle2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-accent-green mb-3 uppercase tracking-widest">Hak Pengguna</h3>
+                  <p className="text-text-charcoal/70 text-xs md:text-sm leading-relaxed">
+                    Anda memiliki hak penuh untuk mengakses, memperbarui, atau meminta penghapusan data pribadi Anda kapan saja. Kami menyediakan dashboard manajemen data yang intuitif di dalam akun kerja Anda untuk memfasilitasi kontrol penuh atas privasi digital Anda.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 p-8 border border-accent-gold/20 bg-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-1 h-full bg-accent-gold"></div>
+            <h4 className="text-sm md:text-base font-bold mb-4 uppercase tracking-widest text-accent-green">Kebijakan Cookie & Pelacakan</h4>
+            <p className="text-xs md:text-sm text-text-charcoal/60 leading-relaxed mb-6">
+              Platform kami menggunakan cookie fungsional untuk mengingat preferensi login Anda dan cookie analitik untuk memahami bagaimana mitra berinteraksi dengan sistem kami. Ini membantu kami meningkatkan efisiensi alur kerja dan akurasi perhitungan komisi secara real-time.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <div className="px-4 py-2 bg-bg-warm border border-accent-gold/10 text-[10px] font-bold uppercase tracking-widest text-accent-gold">GDPR Compliant</div>
+              <div className="px-4 py-2 bg-bg-warm border border-accent-gold/10 text-[10px] font-bold uppercase tracking-widest text-accent-gold">SSL Certified</div>
+              <div className="px-4 py-2 bg-bg-warm border border-accent-gold/10 text-[10px] font-bold uppercase tracking-widest text-accent-gold">2FA Protected</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 bg-bg-warm border-t border-accent-gold/10">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -789,8 +939,8 @@ export default function App() {
             © 2026 PT GRAHA CITRA PRIMA. Seluruh hak cipta dilindungi.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-[8px] md:text-[10px] font-bold text-accent-gold uppercase tracking-widest">
-            <a href="#" className="hover:text-accent-green transition-colors">Syarat & Ketentuan</a>
-            <a href="#" className="hover:text-accent-green transition-colors">Kebijakan Privasi</a>
+            <a href="#syarat" className="hover:text-accent-green transition-colors">Syarat & Ketentuan</a>
+            <a href="#privasi" className="hover:text-accent-green transition-colors">Kebijakan Privasi</a>
             <a href="#" className="hover:text-accent-green transition-colors">Hubungi Kami</a>
           </div>
         </div>
